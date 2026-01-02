@@ -22,7 +22,7 @@
  --red:#dc2626;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter;background:#020617;color:#fff}
+body{margin:0;font-family:Inter;background:#020617;color:#fff; overflow-x: hidden;}
 
 /* CINTILLA DE URGENCIA */
 .urgency-bar {
@@ -45,76 +45,77 @@ body{margin:0;font-family:Inter;background:#020617;color:#fff}
  opacity:.035;pointer-events:none;
 }
 
-/* HEADER */
+/* HEADER RESPONSIVO */
 header{
- position:sticky;top:40px;z-index:100;
+ position:sticky;top:0;z-index:100;
  background:rgba(2,6,23,.95);
  backdrop-filter:blur(12px);
  display:flex;justify-content:space-between;align-items:center;
- padding:18px 60px;
+ padding:15px 5%;
+ flex-wrap: wrap; /* Permite que el menú baje si no hay espacio */
 }
 .brand{display:flex;gap:14px;align-items:center}
-.brand img{height:56px}
-.brand span{font-weight:900}
-nav a{color:#e5e7eb;text-decoration:none;margin:0 14px;font-weight:700}
+.brand img{height:50px}
+.brand span{font-weight:900; font-size: 1.2rem;}
+
+nav{display:flex; align-items:center; gap:10px;}
+nav a{color:#e5e7eb;text-decoration:none;margin:0 10px;font-weight:700; font-size: 14px;}
 nav button{
  background:var(--green);border:none;
- padding:14px 30px;border-radius:40px;
+ padding:12px 25px;border-radius:40px;
  font-weight:900;cursor:pointer;
- box-shadow:0 0 35px var(--green);
+ box-shadow:0 0 25px var(--green);
  color:#fff;
 }
 
-/* HERO */
+/* HERO RESPONSIVO */
 .hero{
  min-height:90vh;
  display:grid;grid-template-columns:1.2fr 1fr;
  padding:100px 70px;
  background:radial-gradient(circle at left,var(--blue),var(--dark));
+ align-items: center;
 }
-.hero h1{font-size:58px}
-.hero p{font-size:22px;max-width:650px}
+.hero h1{font-size:clamp(35px, 6vw, 58px); line-height: 1.1;}
+.hero p{font-size:clamp(18px, 2vw, 22px); max-width:650px;}
 .hero button{
  background:var(--green);padding:22px 40px;
  border-radius:45px;font-weight:900;
  border:none;cursor:pointer;
  box-shadow:0 0 50px var(--green);
- color:#fff;
+ color:#fff; font-size: 18px;
 }
 .hero-logo{text-align:right}
-.hero-logo img{max-width:460px; opacity:.05; filter: grayscale(100%) brightness(1.2);}
+.hero-logo img{max-width:460px; width: 100%; opacity:.05; filter: grayscale(100%) brightness(1.2);}
 .hero-logo p{opacity:.10;font-weight:800}
 
 /* TRUST BAR */
 .trust{
- display:flex;justify-content:center;gap:40px;
- padding:28px;font-weight:800;
- background:#020617;
+ display:flex; flex-wrap: wrap; justify-content:center; gap:20px;
+ padding:28px; font-weight:800; background:#020617;
 }
 
 /* SECTIONS */
 section{padding:110px 70px}
-section h2{font-size:44px;margin-bottom:22px}
+section h2{font-size:clamp(30px, 5vw, 44px); margin-bottom:22px}
 
 /* SERVICES */
 .services{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
  gap:35px;margin-top:40px;
 }
 .service{
  background:#020617;border-radius:24px;
  padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.7);
- transition:.3s;
+ transition:.3s; border: 1px solid rgba(255,255,255,0.05);
 }
 .service:hover{transform:translateY(-10px)}
-.service img{width:100%;border-radius:18px}
+.service img{width:100%;border-radius:18px; aspect-ratio: 4/3; object-fit: cover;}
 
 /* ABOUT */
 .about-box{
- max-width:1100px;
- background:#020617;
- padding:60px;
- border-radius:32px;
+ max-width:1100px; background:#020617;
+ padding:60px; border-radius:32px;
  box-shadow:0 30px 90px rgba(0,0,0,.75);
  font-size:20px;line-height:1.8;
 }
@@ -125,45 +126,39 @@ section h2{font-size:44px;margin-bottom:22px}
  gap:30px;margin-top:40px;
 }
 .why div{
- background:#020617;
- padding:36px;border-radius:26px;
- box-shadow:0 25px 70px rgba(0,0,0,.65);
- font-size:18px;
+ background:#020617; padding:36px;border-radius:26px;
+ box-shadow:0 25px 70px rgba(0,0,0,.65); font-size:18px;
 }
 
 /* DASHBOARD */
 .dashboard{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
  gap:30px;margin-top:40px;
 }
 .card{
  background:#020617;padding:30px;border-radius:26px;
- box-shadow:0 25px 70px rgba(0,0,0,.6);
- text-align:center;
+ box-shadow:0 25px 70px rgba(0,0,0,.6); text-align:center;
 }
 .card span{font-size:44px;font-weight:900;color:var(--green)}
 
-/* CONTACT */
+/* CONTACT SECCION (RESTURADA) */
 .contact{
  background:linear-gradient(135deg,#020617,#0b3c5d);
  padding:65px;border-radius:34px;
  box-shadow:0 35px 90px rgba(0,0,0,.7);
- font-size:20px;
+ font-size:20px; margin-top: 40px;
 }
 
 /* BOTONES FLOTANTES */
 .float{
  position:fixed;right:25px;bottom:25px;
- display:flex;flex-direction:column;gap:15px;
- z-index: 1000;
+ display:flex;flex-direction:column;gap:15px; z-index: 1000;
 }
 .float a{
  width:65px;height:65px;border-radius:20px;
  display:flex;align-items:center;justify-content:center;
  font-size:28px;color:#fff;text-decoration:none;
- transition: all 0.4s;
- box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+ transition: all 0.4s; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 .whatsapp{background: linear-gradient(135deg, #25D366, #128C7E);}
 .messenger{background: linear-gradient(135deg, #0084ff, #00c6ff);}
@@ -177,14 +172,13 @@ section h2{font-size:44px;margin-bottom:22px}
 
 /* MODAL */
 .modal{
- position:fixed;inset:0;
- background:rgba(0,0,0,.85);
+ position:fixed;inset:0; background:rgba(0,0,0,.85);
  display:none;align-items:center;justify-content:center;
- z-index: 1001;
+ z-index: 1001; padding: 20px;
 }
 .modal-content{
  background:#020617;padding:45px;
- border-radius:30px;width:92%;max-width:540px;
+ border-radius:30px;width:100%;max-width:540px;
 }
 .modal-content input, .modal-content select, .modal-content textarea{
  width:100%;padding:15px; margin-bottom:16px;border-radius:12px;border:none;
@@ -196,6 +190,20 @@ section h2{font-size:44px;margin-bottom:22px}
 }
 
 footer{text-align:center;padding:40px;opacity:.6}
+
+/* AJUSTES PARA MÓVIL */
+@media (max-width: 768px) {
+ header { padding: 15px 5%; justify-content: center; gap: 10px; }
+ nav { width: 100%; justify-content: center; flex-wrap: wrap; }
+ nav a { margin: 5px; font-size: 12px; }
+ 
+ .hero { grid-template-columns: 1fr; padding: 60px 5%; text-align: center; }
+ .hero-logo { display: none; } /* Ocultamos logo hero en móvil para dar espacio al texto */
+ 
+ section { padding: 60px 5%; }
+ .about-box, .contact { padding: 30px; }
+ .trust { gap: 10px; font-size: 12px; }
+}
 </style>
 </head>
 
@@ -212,7 +220,7 @@ footer{text-align:center;padding:40px;opacity:.6}
   <a href="#services">Services</a>
   <a href="#about">About</a>
   <a href="#why">Why Us</a>
-  <a href="#dashboard">Dashboard</a>
+  <a href="#dashboard">Live</a>
   <button id="nav-cta" onclick="openModal()">Get Quote</button>
  </nav>
 </header>
@@ -230,10 +238,10 @@ footer{text-align:center;padding:40px;opacity:.6}
 </section>
 
 <div class="trust">
- <span>✔ BBB Accredited Business</span>
+ <span>✔ BBB Accredited</span>
  <span>★★★★★ Google Reviews</span>
- <span>✔ 17+ Years Experience</span>
- <span>✔ Residential & Commercial Expert</span>
+ <span>✔ 17+ Years Exp.</span>
+ <span>✔ Residential & Commercial</span>
 </div>
 
 <section id="services">
@@ -310,44 +318,30 @@ footer{text-align:center;padding:40px;opacity:.6}
 </div>
 
 <script>
-// --- LOGICA MAESTRA PARA CONFIG.JSON ---
 async function applyConfig() {
   const urgencyEl = document.getElementById('urgency-text');
   const navBtn = document.getElementById('nav-cta');
   const heroBtn = document.getElementById('hero-cta');
-
   try {
-    // Forzamos al navegador a buscar el archivo ignorando el caché
     const response = await fetch('img/config.json?nocache=' + new Date().getTime());
-    
     if (response.ok) {
       const data = await response.json();
-      
-      // Si el JSON tiene los datos, los ponemos
-      if (data.urgency_en) urgencyEl.innerText = data.urgency_en;
-      if (data.descuento) {
+      if(data.urgency_en) urgencyEl.innerText = data.urgency_en;
+      if(data.descuento) {
           navBtn.innerText = "Claim " + data.descuento;
           heroBtn.innerText = "Get " + data.descuento + " Off";
       }
-      console.log("Configurada cargada con éxito desde img/config.json");
-    } else {
-      throw new Error("No se pudo leer el archivo");
-    }
+    } else { throw new Error(); }
   } catch (err) {
-    // Si falla (por estar en local), dejamos un texto de reserva profesional
     urgencyEl.innerText = "🔥 Special Residential & Commercial Offer Available Now!";
-    console.warn("Nota: El archivo JSON solo se leerá cuando subas la página a un servidor/hosting.");
   }
 }
-
-// Ejecutar inmediatamente
 applyConfig();
 
 function formatName(input) {
     let val = input.value.toLowerCase();
     input.value = val.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
 }
-
 function formatSentence(input) {
     let val = input.value;
     if (val.length > 0) {
@@ -360,9 +354,7 @@ function formatSentence(input) {
 let visits = localStorage.getItem("visits") || 0;
 visits++; localStorage.setItem("visits", visits);
 document.getElementById("visits").innerText = visits;
-
-let leads = localStorage.getItem("leads") || 0;
-document.getElementById("leads").innerText = leads;
+document.getElementById("leads").innerText = localStorage.getItem("leads") || 0;
 
 function openModal() { document.getElementById("modal").style.display = "flex"; }
 window.onclick = function(e) { if (e.target.id === "modal") { document.getElementById("modal").style.display = "none"; } }
@@ -376,36 +368,20 @@ function sendLead() {
 
   if (!name || !phone) return alert("Please enter Name and Phone");
 
-  let serviceSpecific = "";
-  switch(service) {
-    case "Commercial Remodeling": serviceSpecific = "Proyecto comercial solicitado."; break;
-    case "Kitchen Remodeling": serviceSpecific = "Remodelación de cocina premium."; break;
-    case "Bathroom Remodeling": serviceSpecific = "Remodelación de baño moderno."; break;
-    case "Tile Installation": serviceSpecific = "Instalación de azulejos."; break;
-    case "Professional Painting": serviceSpecific = "Pintura profesional."; break;
-    case "Roofing Solutions": serviceSpecific = "Servicio de techado."; break;
-    case "HVAC & Cooling": serviceSpecific = "Servicio de HVAC."; break;
-  }
-
-  const device = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
-
   fetch("https://script.google.com/macros/s/AKfycbzUbI547Hqyzv2pFzOhB89bqqXh-tQFOroLI3dIrkK8qWzAGOD3CW9YQOafh0jVNqpTcQ/exec", {
     method: "POST", mode: "no-cors", 
-    body: JSON.stringify({ name, phone, email, service, message: msg, source: "Website", device, status: "New" })
+    body: JSON.stringify({ name, phone, email, service, message: msg, source: "Website", status: "New" })
   });
 
-  emailjs.send("service_nldv8hp", "template_92zgc3j", { 
-      name, phone, email, service, message: msg, device, service_specific_msg: serviceSpecific 
-  });
+  emailjs.send("service_nldv8hp", "template_92zgc3j", { name, phone, email, service, message: msg });
 
-  leads++; 
+  let leads = parseInt(localStorage.getItem("leads") || 0) + 1;
   localStorage.setItem("leads", leads);
   document.getElementById("leads").innerText = leads;
 
-  const fullMsg = `*New Lead from Website*\n*Service:* ${service}\n*Name:* ${name}\n*Phone:* ${phone}\n*Details:* ${msg}`;
-  document.getElementById("modal").style.display = "none";
   alert("Success! Opening WhatsApp...");
-  window.open(`https://wa.me/19153095581?text=${encodeURIComponent(fullMsg)}`);
+  window.open(`https://wa.me/19153095581?text=${encodeURIComponent("*New Lead*\n*Name:* "+name+"\n*Phone:* "+phone+"\n*Service:* "+service)}`);
+  document.getElementById("modal").style.display = "none";
 }
 </script>
 </body>
